@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laboratorium Protetyczne Irena Popielewska</title>
+<meta name="description" content="Laboratorium protetyczne w Krakowie, Dębniki. Korony, mosty, protezy, prace na implantach i naprawy dla gabinetów stomatologicznych.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: spokojna, jasna strona w kolorze kości słoniowej; duże zdjęcia, cienkie złote linie, szerokość treści 1120px */
+:root{
+  --ivory:#FBF8F3; --cream:#F4EEE4; --sand:#E5DACB; --ink:#2A2521; --muted:#766B60;
+  --gold:#B59262; --gold-deep:#8A6A3D; --white:#FFFFFF;
+  --f-display:"Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --f-body:"Jost", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:var(--f-body);font-weight:300;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.08;margin:0;text-wrap:balance;color:var(--ink)}
+p{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+.gut{padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1120px;margin-inline:auto}
+.eyebrow{font-family:var(--f-body);font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep)}
+.rule{width:56px;height:1px;background:var(--gold);border:0;margin:0}
+
+/* pasek demo */
+.demo{background:var(--cream);border-bottom:1px solid var(--sand);font-size:13px;letter-spacing:.06em;color:var(--muted);text-align:center;padding-block:9px}
+
+/* nagłówek */
+.top{border-bottom:1px solid var(--sand);background:var(--ivory);position:sticky;top:env(safe-area-inset-top, 0px);z-index:20}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px}
+.logo{display:flex;flex-direction:column;text-decoration:none;line-height:1.1}
+.logo b{font-family:var(--f-display);font-weight:500;font-size:24px;letter-spacing:.01em}
+.logo span{font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-deep);margin-top:4px}
+nav.menu{display:flex;gap:34px;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+nav.menu a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav.menu a:hover{color:var(--ink)}
+.top-phone{font-family:var(--f-display);font-size:21px;text-decoration:none;white-space:nowrap}
+.top-phone small{display:block;font-family:var(--f-body);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);text-align:right}
+
+/* przyciski */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--f-body);font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:16px 30px;border:1px solid var(--ink);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn-dark{background:var(--ink);color:var(--ivory)}
+.btn-dark:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{border-color:var(--gold);color:var(--gold-deep)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding-block:80px 96px}
+.hero-text{display:flex;flex-direction:column;gap:26px;animation:rise .9s ease both}
+.hero h1{font-size:clamp(44px,6vw,76px);font-weight:400;letter-spacing:-.01em}
+.hero h1 em{font-style:italic;color:var(--gold-deep)}
+.hero .lead{font-size:18px;color:var(--muted);max-width:30em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+.hero .phone{font-family:var(--f-display);font-size:24px}
+.hero .phone span{font-family:var(--f-body);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-right:12px}
+.hero-img{position:relative;animation:rise 1.1s .1s ease both}
+.hero-img::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1px solid var(--gold);pointer-events:none}
+.hero-img img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--cream)}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+
+/* sekcje */
+.sec{padding-block:96px}
+.sec-head{display:flex;flex-direction:column;gap:18px;max-width:640px;margin-bottom:56px}
+.sec-head h2{font-size:clamp(36px,4.6vw,56px);font-weight:400}
+.sec-head p{color:var(--muted)}
+.sec-head.center{margin-inline:auto;text-align:center;align-items:center}
+
+/* zakres prac */
+.works{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 36px}
+.work{display:flex;flex-direction:column;gap:16px;min-width:0}
+.work figure{margin:0;overflow:hidden;background:var(--cream)}
+.work img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s ease}
+.work:hover img{transform:scale(1.04)}
+.work h3{font-size:28px}
+.work p{color:var(--muted);font-size:16px}
+.work .eyebrow{font-size:11px}
+
+/* współpraca */
+.band{background:var(--cream);border-block:1px solid var(--sand)}
+.coop{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:center}
+.coop img{width:100%;aspect-ratio:1;object-fit:cover}
+.steps{display:flex;flex-direction:column;gap:34px;margin-top:8px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start;padding-bottom:30px;border-bottom:1px solid var(--sand)}
+.step:last-child{border-bottom:0;padding-bottom:0}
+.step .n{font-family:var(--f-display);font-style:italic;font-size:46px;line-height:1;color:var(--gold)}
+.step h3{font-size:26px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:16px}
+
+/* formularz */
+.order{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
+.order-info{display:flex;flex-direction:column;gap:22px}
+.order-info .item{border-top:1px solid var(--sand);padding-top:14px}
+.order-info .item span{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+.order-info .item b{font-family:var(--f-display);font-weight:500;font-size:22px}
+form.card{background:var(--white);border:1px solid var(--sand);padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:26px 30px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label,.field .lbl{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{font:inherit;font-weight:400;font-size:16px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--sand);border-radius:0;padding:8px 0;width:100%;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-bottom-color:var(--gold)}
+.field textarea{min-height:84px;resize:vertical}
+.drop{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;border:1px dashed var(--sand);padding:22px;text-align:center;color:var(--muted);font-size:15px;cursor:pointer;transition:border-color .2s}
+.drop:hover{border-color:var(--gold)}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.thumbs{display:flex;flex-wrap:wrap;gap:8px}
+.thumbs img{width:68px;height:68px;object-fit:cover;border:1px solid var(--sand)}
+.form-msg{grid-column:1/-1;background:var(--cream);padding:14px 18px;font-size:15px;border-left:2px solid var(--gold)}
+
+/* galeria */
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:16px}
+.gallery figure{margin:0;overflow:hidden;background:var(--cream)}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.gallery figure:hover img{transform:scale(1.04)}
+.gallery .big{grid-row:1/3}
+.gallery .big img{aspect-ratio:4/5}
+.gallery .sm img{aspect-ratio:1}
+.gal-note{margin-top:18px;font-size:14px;color:var(--muted);text-align:center}
+
+/* kontakt */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact h2{font-size:clamp(36px,4.6vw,56px);font-weight:400}
+.addr{font-family:var(--f-display);font-size:28px;line-height:1.3;margin-top:24px}
+.c-lines{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--sand)}
+.c-line{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding-block:20px;border-bottom:1px solid var(--sand);flex-wrap:wrap}
+.c-line span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep)}
+.c-line a,.c-line b{font-family:var(--f-display);font-weight:500;font-size:24px;text-decoration:none;overflow-wrap:anywhere}
+.contact .btn{margin-top:30px}
+
+footer{border-top:1px solid var(--sand)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:30px;font-size:13px;color:var(--muted);letter-spacing:.04em}
+
+/* pasek telefonu na komórce */
+.callbar{display:none}
+
+@media (max-width:900px){
+  nav.menu{display:none}
+  .hero .wrap,.coop,.order,.contact{grid-template-columns:1fr;gap:48px}
+  .hero .wrap{padding-block:48px 72px}
+  .hero-img{margin-left:18px}
+  .works{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sec{padding-block:72px}
+}
+@media (max-width:640px){
+  body{padding-bottom:74px}
+  .top-phone{display:none}
+  .works{grid-template-columns:1fr;gap:44px}
+  form.card{grid-template-columns:1fr;padding:28px 22px}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery .big{grid-row:auto;grid-column:1/-1}
+  .gallery .big img{aspect-ratio:4/3}
+  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--ink);
+    padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom, 0px));
+    padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+  .callbar a{flex:1;text-align:center;color:var(--ivory);text-decoration:none;font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+  .callbar a b{font-family:var(--f-display);font-weight:500;font-size:20px;letter-spacing:0;text-transform:none;margin-left:8px}
+}
+</style>
+</head>
+<body>
+
+<div class="demo gut">Wersja demo. Zakres prac, godziny i zdjęcia uzupełnimy po rozmowie.</div>
+
+<header class="top gut">
+  <div class="wrap">
+    <a class="logo" href="#"><b>Irena Popielewska</b><span>Laboratorium Protetyczne</span></a>
+    <nav class="menu" aria-label="Menu">
+      <a href="#prace">Zakres prac</a><a href="#wspolpraca">Współpraca</a><a href="#zlecenie">Zlecenie</a><a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="top-phone" href="tel:+48601898441"><small>Zadzwoń</small>601 898 441</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero gut">
+    <div class="wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Kraków · Dębniki</p>
+        <h1>Laboratorium protetyczne <em>w Krakowie</em></h1>
+        <hr class="rule">
+        <p class="lead">Prace protetyczne dla gabinetów stomatologicznych. Korony, mosty, protezy i naprawy wykonywane starannie, w terminie uzgodnionym z lekarzem.</p>
+        <div class="actions">
+          <a class="btn btn-dark" href="tel:+48601898441">Zadzwoń</a>
+          <a class="btn btn-line" href="#zlecenie">Zleć pracę</a>
+        </div>
+        <p class="phone"><span>Telefon</span>601 898 441</p>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.pexels.com/photos/12551732/pexels-photo-12551732.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Technik dentystyczny wykańcza pędzelkiem model z zębami" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gut" id="prace">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="eyebrow">Zakres prac</p>
+        <h2>Protetyka stała i ruchoma</h2>
+        <p>Wykonujemy uzupełnienia na zlecenie lekarza, od pojedynczej korony po pełną protezę.</p>
+      </div>
+      <div class="works">
+        <article class="work">
+          <figure><img loading="lazy" src="https://images.pexels.com/photos/33748047/pexels-photo-33748047.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Korony i most na modelu"></figure>
+          <p class="eyebrow">Protetyka stała</p><h3>Korony i mosty</h3>
+          <p>Uzupełnienia porcelanowe na podbudowie metalowej, pojedyncze korony i mosty wielopunktowe.</p>
+        </article>
+        <article class="work">
+          <figure><img loading="lazy" src="https://images.pexels.com/photos/7788508/pexels-photo-7788508.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Technik pracuje nad pojedynczym zębem ceramicznym"></figure>
+          <p class="eyebrow">Estetyka</p><h3>Pełna ceramika i cyrkon</h3>
+          <p>Korony bez metalu, licówki i nakłady dobierane do koloru zębów pacjenta.</p>
+        </article>
+        <article class="work">
+          <figure><img loading="lazy" src="https://images.pexels.com/photos/4687905/pexels-photo-4687905.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Model zęba na implancie"></figure>
+          <p class="eyebrow">Implantologia</p><h3>Prace na implantach</h3>
+          <p>Korony i mosty mocowane na łącznikach implantów, przykręcane lub cementowane.</p>
+        </article>
+        <article class="work">
+          <figure><img loading="lazy" src="https://images.pexels.com/photos/33748023/pexels-photo-33748023.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Protezy całkowite na modelach w artykulatorze"></figure>
+          <p class="eyebrow">Protetyka ruchoma</p><h3>Protezy całkowite</h3>
+          <p>Protezy akrylowe przy całkowitym braku zębów, ustawiane w artykulatorze.</p>
+        </article>
+        <article class="work">
+          <figure><img loading="lazy" src="https://images.pexels.com/photos/18662954/pexels-photo-18662954.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Technik dentystyczny przy pracy nad protezą"></figure>
+          <p class="eyebrow">Protetyka ruchoma</p><h3>Protezy szkieletowe i częściowe</h3>
+          <p>Lekkie protezy na metalowym szkielecie oraz protezy częściowe akrylowe i elastyczne.</p>
+        </article>
+        <article class="work">
+          <figure><img loading="lazy" src="https://images.pexels.com/photos/6627589/pexels-photo-6627589.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Polerowanie protezy po naprawie"></figure>
+          <p class="eyebrow">Serwis</p><h3>Naprawy i podścielenia</h3>
+          <p>Pęknięcia, dostawienie zęba lub klamry, podścielenie protezy w krótkim terminie.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band gut" id="wspolpraca">
+    <div class="wrap sec">
+      <div class="coop">
+        <img loading="lazy" src="https://images.pexels.com/photos/7788506/pexels-photo-7788506.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Stanowisko pracy w laboratorium protetycznym">
+        <div>
+          <div class="sec-head" style="margin-bottom:28px">
+            <p class="eyebrow">Dla gabinetów</p>
+            <h2>Jak zlecić pracę</h2>
+          </div>
+          <div class="steps">
+            <div class="step"><span class="n">1</span><div><h3>Zgłoszenie</h3><p>Gabinet dzwoni lub wysyła zlecenie przez formularz: rodzaj pracy, kolor i termin oddania.</p></div></div>
+            <div class="step"><span class="n">2</span><div><h3>Wycisk lub skan</h3><p>Ustalamy, w jaki sposób wycisk trafi do laboratorium.</p></div></div>
+            <div class="step"><span class="n">3</span><div><h3>Wykonanie i odbiór</h3><p>Wykonujemy pracę, w razie potrzeby przymiarkę, i oddajemy ją w uzgodnionym terminie.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec gut" id="zlecenie">
+    <div class="wrap order">
+      <div class="order-info">
+        <div class="sec-head" style="margin-bottom:12px">
+          <p class="eyebrow">Formularz</p>
+          <h2>Zlecenie pracy</h2>
+          <p>Wpisz dane pracy i dodaj zdjęcia, na przykład koloru zębów sąsiednich albo uszkodzonej protezy. Oddzwonimy z potwierdzeniem terminu.</p>
+        </div>
+        <div class="item"><span>Telefon</span><b>601 898 441</b></div>
+        <div class="item"><span>E-mail</span><b>irenalab@poczta.onet.pl</b></div>
+      </div>
+
+      <form class="card" id="orderForm" novalidate>
+        <div class="field"><label for="f-gab">Gabinet</label><input id="f-gab" name="gabinet" autocomplete="organization"></div>
+        <div class="field"><label for="f-lek">Lekarz</label><input id="f-lek" name="lekarz"></div>
+        <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-term">Termin oddania</label><input id="f-term" name="termin" type="date"></div>
+        <div class="field"><label for="f-rodz">Rodzaj pracy</label>
+          <select id="f-rodz" name="rodzaj">
+            <option>Korona lub most</option><option>Pełna ceramika lub cyrkon</option><option>Licówka lub nakład</option>
+            <option>Praca na implancie</option><option>Proteza całkowita</option><option>Proteza szkieletowa lub częściowa</option>
+            <option>Naprawa lub podścielenie</option><option>Inna praca</option>
+          </select></div>
+        <div class="field"><label for="f-kol">Kolor</label>
+          <select id="f-kol" name="kolor">
+            <option>Do ustalenia</option><option>A1</option><option>A2</option><option>A3</option><option>A3.5</option>
+            <option>B1</option><option>B2</option><option>C1</option><option>D2</option>
+          </select></div>
+        <div class="field full"><span class="lbl">Zdjęcia</span>
+          <label class="drop" for="f-zdj">Dodaj zdjęcia z telefonu lub komputera<input id="f-zdj" type="file" accept="image/*" multiple></label>
+          <div class="thumbs" id="thumbs"></div></div>
+        <div class="field full"><label for="f-uw">Uwagi</label><textarea id="f-uw" name="uwagi" placeholder="Zęby, materiał, przymiarka"></textarea></div>
+        <div class="field full"><button class="btn btn-dark" type="submit">Wyślij zlecenie</button></div>
+        <p class="form-msg" id="formMsg" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec gut" id="galeria" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center">
+        <p class="eyebrow">Galeria</p>
+        <h2>Z pracowni</h2>
+      </div>
+      <div class="gallery">
+        <figure class="big"><img loading="lazy" src="https://images.pexels.com/photos/7788493/pexels-photo-7788493.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Praca nad zębami protezy w laboratorium"></figure>
+        <figure class="sm"><img loading="lazy" src="https://images.pexels.com/photos/6627653/pexels-photo-6627653.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Polerowanie protezy"></figure>
+        <figure class="sm"><img loading="lazy" src="https://images.pexels.com/photos/6627655/pexels-photo-6627655.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mikrosilnik protetyczny"></figure>
+        <figure class="sm"><img loading="lazy" src="https://images.pexels.com/photos/7788508/pexels-photo-7788508.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Precyzyjna praca nad zębem"></figure>
+        <figure class="sm"><img loading="lazy" src="https://images.pexels.com/photos/6627600/pexels-photo-6627600.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Wykańczanie protezy"></figure>
+      </div>
+      <p class="gal-note">Zdjęcia poglądowe. W gotowej stronie pokażemy prace laboratorium.</p>
+    </div>
+  </section>
+
+  <section class="band gut" id="kontakt">
+    <div class="wrap sec contact">
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <h2 style="margin-top:18px">Laboratorium na Dębnikach</h2>
+        <p class="addr">ul. Kobierzyńska 60 lok. 1<br>30-363 Kraków</p>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Kobierzy%C5%84ska+60%2C+30-363+Krak%C3%B3w" target="_blank" rel="noopener">Wskazówki dojazdu</a>
+      </div>
+      <div class="c-lines">
+        <div class="c-line"><span>Telefon</span><a href="tel:+48601898441">601 898 441</a></div>
+        <div class="c-line"><span>E-mail</span><a href="mailto:irenalab@poczta.onet.pl">irenalab@poczta.onet.pl</a></div>
+        <div class="c-line"><span>Dzielnica</span><b>Dębniki, Ruczaj</b></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="gut">
+  <div class="wrap">
+    <span>Irena Popielewska, Laboratorium Protetyczne · NIP 679 240 79 14</span>
+    <span>Zdjęcia poglądowe: Pexels</span>
+  </div>
+</footer>
+
+<div class="callbar"><a href="tel:+48601898441">Zadzwoń <b>601 898 441</b></a></div>
+
+<script>
+(function(){
+  var f=document.getElementById('f-zdj'),th=document.getElementById('thumbs');
+  f.addEventListener('change',function(){
+    th.innerHTML='';
+    Array.prototype.slice.call(f.files,0,8).forEach(function(file){
+      var rd=new FileReader();rd.onload=function(e){var i=document.createElement('img');i.src=e.target.result;i.alt=file.name;th.appendChild(i)};rd.readAsDataURL(file);
+    });
+  });
+  var form=document.getElementById('orderForm'),msg=document.getElementById('formMsg');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var gab=document.getElementById('f-gab').value.trim(),tel=document.getElementById('f-tel').value.trim();
+    msg.hidden=false;
+    if(!gab||!tel){msg.textContent='Wpisz nazwę gabinetu i numer telefonu, żebyśmy mogli oddzwonić.';return}
+    msg.textContent='Wersja demo: w gotowej stronie to zlecenie trafi na e-mail laboratorium.';
+  });
+})();
+</script>
+</body>
+</html>
